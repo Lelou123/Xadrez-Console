@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tabuleiro;
 
 namespace Xadrez_Console.xadrez
 {
@@ -16,6 +17,12 @@ namespace Xadrez_Console.xadrez
             Coluna = coluna;
             Linha = linha;
         }
+        
+        public Posicao ToPosicao()
+        {
+            return new Posicao(8 - Linha, Coluna - 'a');
+        }
+
         public override string ToString()
         {
             return "" + Coluna + Linha;

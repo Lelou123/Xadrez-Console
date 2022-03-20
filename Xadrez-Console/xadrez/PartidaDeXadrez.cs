@@ -9,7 +9,7 @@ using Xadrez_Console.xadrez;
 
 namespace xadrez
 {
-    internal class PartidaDeXadrez
+     class PartidaDeXadrez
     {        
         private int Turno;
         private Cor JogadorAtual;        

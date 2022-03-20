@@ -10,7 +10,7 @@ namespace Xadrez_Console.xadrez
 {
     internal class Rei : Peca
     {
-        public Rei(Cor cor, Tabuleiro tabuleiro) : base(cor, tabuleiro)
+        public Rei(Tabuleiro tabuleiro, Cor cor) : base(tabuleiro, cor)
         {
         }
         private bool podeMover(Posicao pos)

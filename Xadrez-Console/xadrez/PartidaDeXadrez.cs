@@ -11,9 +11,11 @@ namespace xadrez
 {
      class PartidaDeXadrez
     {        
-        private int Turno;
-        private Cor JogadorAtual;        
+        
+        public Cor JogadorAtual { get; private set; }
         public Tabuleiro Tab { get; private set; }
+        public int Turno { get; private set; }
+
         public bool Terminada { get; private set; }
 
         public PartidaDeXadrez()
@@ -33,7 +35,39 @@ namespace xadrez
             Tab.ColocarPeca(p, destino);
         }
 
+        public void RealizaJogada(Posicao origem, Posicao destino)
+        {
+            ExecutaMovimento(origem, destino);
+            Turno++;
+            MudaJogador();
+        }
 
+        public void ValidarOrigem(Posicao origem)
+        {
+            if(Tab.peca(origem) == null)
+            {
+                throw new TabuleiroException("Não existe peça na origem escolhida");
+            }
+            if(JogadorAtual != Tab.peca(origem).Cor)
+            {
+                throw new TabuleiroException("A peça de origem escolhida não é sua!");
+            }
+            if(!Tab.peca(origem).ExisteMovimentosPossiveis())
+            {
+                throw new TabuleiroException("Não há movimentos possiveis para a peça na origem escolhida");
+            }
+        }
+        private void MudaJogador()
+        {
+            if(JogadorAtual == Cor.Branca)
+            {
+                JogadorAtual = Cor.Preta;
+            }
+            else
+            {
+                JogadorAtual = Cor.Branca;
+            }
+        }
         private void ColocarPecas()
         {
             Tab.ColocarPeca(new Torre(Cor.Branca, Tab), new PosicaoXadrez('c', 1).ToPosicao());

@@ -152,12 +152,33 @@ namespace xadrez
         {
             
             Peca pecaCapturada = ExecutaMovimento(origem, destino);
-            if(EstaEmXeque(JogadorAtual))
+            
+
+            if (EstaEmXeque(JogadorAtual))
             {
                 DesfazMovimento(origem, destino, pecaCapturada);
                 throw new TabuleiroException("Voce nao pode se colocar em xeque");
             }
-            if(EstaEmXeque(Adversaria(JogadorAtual)))
+
+            //jogadaEspecial promocao
+
+            Peca p = Tab.peca(destino);
+
+            // #jogadaespecial promocao
+            if (p is Peao)
+            {
+                if ((p.Cor == Cor.Branca && destino.Linha == 0) || (p.Cor == Cor.Preta && destino.Linha == 7))
+                {
+                    p = Tab.RetirarPeca(destino);
+                    Pecas.Remove(p);
+                    Peca dama = new Dama(Tab, p.Cor);
+                    Tab.ColocarPeca(dama, destino);
+                    Pecas.Add(dama);
+                }
+            }
+
+
+            if (EstaEmXeque(Adversaria(JogadorAtual)))
             {
                 Xeque = true;
             }
@@ -176,7 +197,7 @@ namespace xadrez
             }
 
 
-            Peca p = Tab.peca(destino);
+            
 
             //#jogadaEspecial en passant
             if(p is Peao && (destino.Linha == origem.Linha - 2 || destino.Linha == origem.Linha + 2))
@@ -347,7 +368,7 @@ namespace xadrez
             ColocarNovaPeca('b', 8, new Cavalo(Tab, Cor.Preta));
             ColocarNovaPeca('c', 8, new Bispo(Tab, Cor.Preta));
             ColocarNovaPeca('d', 8, new Dama(Tab, Cor.Preta));
-            ColocarNovaPeca('e', 8, new Rei(Tab, Cor.Preta, this));
+            ColocarNovaPeca('e', 8, new Peao(Tab, Cor.Preta, this));
             ColocarNovaPeca('f', 8, new Bispo(Tab,  Cor.Preta));
             ColocarNovaPeca('g', 8, new Cavalo(Tab, Cor.Preta));
             ColocarNovaPeca('h', 8, new Torre(Tab, Cor.Preta));

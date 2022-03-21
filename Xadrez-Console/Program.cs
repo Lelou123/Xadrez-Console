@@ -18,8 +18,6 @@ namespace Xadrez_Console
                 {
                     try
                     {
-
-
                         Console.Clear();
                         Tela.ImprimirPartida(partida);
 
@@ -28,7 +26,6 @@ namespace Xadrez_Console
                         Posicao origem = Tela.LerPosicaoXaderz().ToPosicao();
 
                         partida.ValidarOrigem(origem);
-
 
                         bool[,] posicoesPossiveis = partida.Tab.peca(origem).MovimentosPossiveis();
 
@@ -40,6 +37,7 @@ namespace Xadrez_Console
                         Console.Write("Digite a posição de destino: ");
                         Posicao destino = Tela.LerPosicaoXaderz().ToPosicao();
                         partida.RealizaJogada(origem, destino);
+
                     }
                     catch (TabuleiroException ex)
                     {
@@ -47,7 +45,6 @@ namespace Xadrez_Console
                         Console.ReadLine();
                     }
                 }
-
             }
             catch (TabuleiroException ex)
             {

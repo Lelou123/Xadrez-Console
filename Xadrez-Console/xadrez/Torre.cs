@@ -10,9 +10,7 @@ namespace Xadrez_Console.xadrez
 {
     internal class Torre : Peca
     {
-        public Torre(Tabuleiro tabuleiro, Cor cor) : base(tabuleiro, cor)
-        {
-        }
+        public Torre(Tabuleiro tabuleiro, Cor cor) : base(tabuleiro, cor) {}
         private bool podeMover(Posicao pos)
         {
             Peca p = Tabuleiro.peca(pos);

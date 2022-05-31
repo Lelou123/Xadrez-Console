@@ -1,30 +1,29 @@
 # Xadrez-Console ♟️:
 
+Welcome to my repository made from a challenge in the last module of "course C# complete by professor Nelio Alves".
 
-Bem-vindo ao meu repositorio feito por um desafio proposto pelo curso C# completo do Professor Nélio Alves
 
-
-### Foi utilizado no projeto
+### Languages and Frameworks
 
 - C#
 
 - .Net 5.0
 
-- POO
+- OOP
 
 
-<h2>Recursos aplicação</h2>
-- Função principal: Simular uma partida de xadrez
-- Layout: Console windows
-- Dois jogadores
-<h3>Recursos tecnicos</h3>
-- Voce pode fazer até mesmo movimentos especiais presentes no xadrez real
+<h2>Applications resources</h2>
+- Main function: Simulate a chess play
+- Layout: Windows console application
+- Two players
+<h3>Functional resources</h3>
+- You can do the same moves of a real chess match
 
-<h2>Como funciona?</h2>
+<h2>How does it work?</h2>
 
 
-1. Ao inicar o jogo as brancas fazem sua primeira jogada
-2. Siga as <a href="https://www.chess.com/pt-BR/como-jogar-xadrez">regras do xadrez</a> e caminhe para a vitória
+1. At the start white's will make the first round.
+2. Follow the <a href="[https://www.chess.com/pt-BR/como-jogar-xadrez](https://www.chess.com/learn-how-to-play-chess)">Chess rules</a> and go to the victory
 
 ### Desktop Preview
 
